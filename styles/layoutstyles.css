@@ -1,0 +1,179 @@
+/*─────────────────────────────────────────────────────────
+  Clean, professional layout for The World of the Azrothi
+─────────────────────────────────────────────────────────*/
+
+/* palette & fonts */
+:root {
+  --bg-page:   #f5f3f2;
+  --bg-panel:  #ffffff;
+  --border:    #dddddd;
+  --shadow:    rgba(0,0,0,0.1);
+  --text:      #333333;
+  --font:      'Segoe UI', Tahoma, sans-serif;
+
+  --accent-setting:   #4e9af1;
+  --accent-mythos:    #ffba49;
+  --accent-oathyrean: #7bc950;
+  --accent-factions:  #e07a5f;
+  --accent-spell:     #3d405b;
+  --accent-begin:     #81b29a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg-page);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.6;
+}
+
+/*──────────────────────────────── Panel Layout ──*/
+.common {
+  position: absolute;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 4px var(--shadow);
+  overflow: auto;
+}
+
+/* header */
+.header {
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+}
+
+/* left nav */
+.leftmenu {
+  top: 60px; left: 0;
+  bottom: 40px; width: 220px;
+  padding: 20px;
+}
+
+/* main content */
+.mainbody {
+  top: 60px; left: 220px;
+  right: 220px; bottom: 40px;
+  padding: 30px;
+}
+
+/* right sidebar */
+.rightmenu {
+  top: 60px; right: 0;
+  bottom: 40px; width: 220px;
+  padding: 20px;
+}
+
+/* footer */
+.footer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #777;
+}
+
+/*──────────────────────────────── Section Accents ──*/
+#setting, #mythos, #oathyrean, #factions, #spell, #begin {
+  background: #fcfcfc;
+  border-radius: 0.5rem;
+  border-left: 6px solid transparent;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+#setting   { border-left-color: var(--accent-setting); }
+#mythos    { border-left-color: var(--accent-mythos); }
+#oathyrean { border-left-color: var(--accent-oathyrean); }
+#factions  { border-left-color: var(--accent-factions); }
+#spell     { border-left-color: var(--accent-spell); }
+#begin     { border-left-color: var(--accent-begin); }
+
+/* typography */
+.mainbody h1, .mainbody h2 {
+  margin-top: 0;
+  color: var(--text);
+}
+.mainbody h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.mainbody ul, .mainbody ol {
+  margin-left: 1.5rem;
+}
+
+/* blockquote */
+.mainbody blockquote {
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: #555;
+  margin: 1.5rem 0;
+}
+
+/* leftmenu TOC styling */
+.leftmenu .nav-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: background 0.2s;
+}
+.leftmenu .nav-link:hover {
+  background: var(--bg-page);
+}
+/*─────────────────────────────────────────────────────────
+  Header Nav Spacing
+─────────────────────────────────────────────────────────*/
+.header nav {
+  display: flex;
+  justify-content: center;      /* center the links horizontally */
+  align-items: center;          /* vertically center in the header */
+  gap: 1rem;                    /* space between each link+separator */
+  font-size: 1rem;              /* adjust as you like */
+}
+
+.header nav a {
+  text-decoration: none;
+  color: inherit;               /* or your accent color */
+}
+
+/* if you’re still using literal “|” characters, give them breathing room */
+.header nav a + a::before {
+  content: "|";
+  margin: 0 0.5rem;             /* space on either side of the pipe */
+  color: var(--text-color);     /* match your text color */
+}
+
+/*─────────────────────────────────────────────────────────
+  Profile headshot in leftmenu
+─────────────────────────────────────────────────────────*/
+.leftmenu .profile-img {
+  display: block;
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  margin: 1rem auto 0;      /* top-gap, centered */
+  border-radius: 0.5rem;    /* subtle rounding */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Match mainbody heading style from Azrothi page */
+.mainbody h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+body.azrothi-page .mainbody {
+  right: 0;
+}

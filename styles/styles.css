@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background-color: rgb(185, 171, 160);
+}
+li{
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+a{
+    color: rgb(45, 107, 241);
+}
+.listheading{
+    font-weight: bold;
+    font-style: normal;
+}
+.underline{
+    text-decoration: underline;
+}
+.justify{
+    text-align: justify;
+}
+
+.homebg{
+    background-image: url('/images/Attaros\ Alignment.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center top;
+    background-size: cover;
+}

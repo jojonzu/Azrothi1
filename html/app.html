@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fantasy Name Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a1a1a;
+      color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #2a2a2a;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+    select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+    }
+    select {
+      background: #3a3a3a;
+      color: #f0f0f0;
+    }
+    button {
+      background: #4e9af1;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #357ae8;
+    }
+    .result {
+      margin-top: 1.5rem;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #ffd369;
+      min-height: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Fantasy Name Generator</h1>
+    <p>Select a faction, then click Generate:</p>
+    <select id="faction">
+      <option value="azrothi">Azrothi</option>
+      <option value="attaran">Attaran</option>
+      <option value="thrain">Thrain</option>
+    </select>
+    <button id="generate">Generate Name</button>
+    <div class="result" id="nameResult"></div>
+  </div>
+
+  <script>
+    const nameParts = {
+      azrothi: {
+        pre: ['Kael', 'Vaer', 'Thorn', 'Mal', 'Zeth', 'Kaer', 'Rysh', 'Fael'],
+        suf: ['dor', 'vash', 'rion', 'thas', 'mir', 'khos', 'dren', 'zahn']
+      },
+      attaran: {
+        pre: ['Ul', 'Vor', 'Kar', 'Sha', 'Ghal', 'Mor', 'Ur', 'Thar'],
+        suf: ['grim', 'dun', 'vok', 'mar', 'rax', 'goth', 'dran', 'gash']
+      },
+      thrain: {
+        pre: ['Eld', 'Bry', 'Ther', 'Gal', 'Ael', 'Ryn', 'Dul', 'Hrun'],
+        suf: ['ric', 'dred', 'gard', 'mir', 'gri', 'drek', 'thor', 'nar']
+      }
+    };
+
+    function randomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function generateName(faction) {
+      const parts = nameParts[faction];
+      return randomItem(parts.pre) + randomItem(parts.suf);
+    }
+
+    document.getElementById('generate').addEventListener('click', () => {
+      const faction = document.getElementById('faction').value;
+      const name = generateName(faction);
+      document.getElementById('nameResult').textContent = name;
+    });
+  </script>
+</body>
+</html>
